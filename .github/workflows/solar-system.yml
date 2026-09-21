@@ -83,7 +83,6 @@ jobs:
         name: Containerization
         needs: [unit-testing, code-coverage]
         permissions:
-          contents: read
           packages: write
         runs-on: ubuntu-latest
         steps:
