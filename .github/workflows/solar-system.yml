@@ -83,6 +83,9 @@ jobs:
         name: Containerization
         needs: [unit-testing, code-coverage]
         runs-on: ubuntu-latest
+        permissions:
+          contents: read
+          packages: write
         steps:
         - name: Checkout
           uses: actions/checkout@v4
@@ -129,7 +132,7 @@ jobs:
         #     context: .
         #     push: true
         #     tags: ${{ vars.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
-        
+
         - name: Container registry Push
           uses: docker/build-push-action@v7.4.0
           with:
