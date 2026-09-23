@@ -148,20 +148,20 @@ jobs:
     dev-deploy:
       needs: docker
       runs-on: ubuntu-latest
-        steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v4
+      steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-        - name: Install kubectl cli
-          uses: Azure/setup-kubectl@v5.1.0
-          with:
-            version: 'v1.26.0'
+      - name: Install kubectl cli
+        uses: Azure/setup-kubectl@v5.1.0
+        with:
+          version: 'v1.26.0'
 
-        - name: Fetch Kubernetes Cluster Details
-          run: |
-            kubectl version --short 
-            echo ----------------------------------------------
-            kubectl get nodes
+      - name: Fetch Kubernetes Cluster Details
+        run: |
+          kubectl version --short 
+          echo -----------------------------------------------
+          kubectl get nodes
 
 
 
